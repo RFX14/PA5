@@ -15,7 +15,7 @@ int HashTable::hash(std::string s) {
 	int hash = 0;
 	int n = s.length();
 	for(int i = 0; i < n; i++) {
-		hash = g * hash + s.at(i);
+		hash = 7 * hash + int(s.at(i));
 	}
 	return hash % 101;
 }
