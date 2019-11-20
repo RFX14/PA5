@@ -18,6 +18,7 @@ class HashTable{
 
 	public: 
 		HashTable();
+		HashTable(std::string);
 		~HashTable(); 
 		virtual void insert(std::string key, int val) = 0; 
 		virtual int remove(std::string key) = 0; 

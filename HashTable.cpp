@@ -2,8 +2,12 @@
 
 ///////////////////// TODO: FILL OUT THE FUNCTIONS /////////////////////
 // default constructor
-HashTable::HashTable() {
-
+HashTable::HashTable(std::string str) {
+	std::ifstream file{str};
+	std::string input;
+	while(file >> input) {
+		insert(input, hash(input));
+	}
 }
 
 // destructor
