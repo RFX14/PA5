@@ -14,7 +14,7 @@ class HashTable{
 		int hash(std::string s); 
 
 		// TODO: insert necessary variables for your hash table here
-		std::vector<std::string> table;
+		std::vector<std::string> data;
 
 	public: 
 		HashTable();

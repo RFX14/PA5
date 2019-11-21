@@ -2,11 +2,15 @@
 
 ///////////////////// TODO: FILL OUT THE FUNCTIONS /////////////////////
 // default constructor
+HashTable::HashTable(){
+
+}
+
 HashTable::HashTable(std::string str) {
 	std::ifstream file{str};
 	std::string input;
 	while(file >> input) {
-		insert(input, hash(input));
+		data.push_back(input)
 	}
 }
 
@@ -26,6 +30,5 @@ int HashTable::hash(std::string s) {
 
 // returns a boolean of whether the hash table is empty or not
 bool HashTable::isEmpty() const {
-	
-	return false;
+	return true;
 }
