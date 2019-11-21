@@ -10,7 +10,7 @@ HashTable::HashTable(std::string str) {
 	std::ifstream file{str};
 	std::string input;
 	while(file >> input) {
-		data.push_back(input)
+		data.push_back(input);
 	}
 }
 
@@ -25,7 +25,7 @@ int HashTable::hash(std::string s) {
 	for(int i = 0; i < n; i++) {
 		hash = 7 * hash + int(s.at(i));
 	}
-	return hash % 101;
+	return hash % 58000;
 }
 
 // returns a boolean of whether the hash table is empty or not
