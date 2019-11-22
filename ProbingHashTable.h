@@ -7,14 +7,15 @@
 class ProbingHashTable : public HashTable {
     private:
     // TODO: insert additional variables here
-
+        std::vector<std::string> table;
+        std::vector<int> count;
     public: 
-    ProbingHashTable();
-    ~ProbingHashTable(); 
-    void insert(std::string key, int val); 
-    int remove(std::string key); 
-    int get(std::string key); 
-    void printAll(std::string filename);
+        ProbingHashTable(std::string str);
+        ~ProbingHashTable(); 
+        void insert(std::string key, int val); 
+        int remove(std::string key); 
+        int get(std::string key); 
+        void printAll(std::string filename);
 };
 
 #endif
