@@ -6,7 +6,7 @@
 using namespace std;
 
 int main() {
-    ProbingHashTable myTable("dictionary.txt");
+    ChainingHashTable myTable("dictionary.txt");
     myTable.printAll("testOut.txt");
     return 0;
 }

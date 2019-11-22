@@ -5,6 +5,7 @@
 
 // constructor (NOTE: graders will use a default constructor for testing)
 ChainingHashTable::ChainingHashTable(std::string str) : HashTable(str) {
+	table.resize(58000);
 	for(int i = 0; i < data.size(); i++) {
 		insert(data.at(i), HashTable::hash(data.at(i)));
 	}
@@ -13,29 +14,26 @@ ChainingHashTable::ChainingHashTable(std::string str) : HashTable(str) {
 // inserts the given string key
 void ChainingHashTable::insert(std::string key, int val) {
 	//std::cout << key << "\n";
-	table.push_back(val);
+	table.at(val).push_back(key);
 	//std::cout << "After\n\n";
 }
 
 // removes the given key from the hash table - if the key is not in the list, throw an error
 int ChainingHashTable::remove(std::string key) {
 	int val = HashTable::hash(key);
-	if(table.at(val) == "" || count.at(val) == 0) {
+	if(table.at(val).size() == 0) {
 		std::cout << "ERROR: Key doesn't exist\n";
 		return 0;
 	}
-	
-	count.at(val) -= 1;
-	if(count.at(val) == 0) {
-		table.at(val) = "";
-	}
+
+	table.at(val).pop_back();
 	return val;
 }
 
 // getter to obtain the value associated with the given key
 int ChainingHashTable::get(std::string key) {
 	int val = HashTable::hash(key);
-	if(table.at(val) == "") {
+	if(table.at(val).size() == 0) {
 		std::cout << "ERROR: Key doesn't exist\n";
 		return 0;
 	}
@@ -45,8 +43,8 @@ int ChainingHashTable::get(std::string key) {
 // prints number of occurrances for all given strings to a txt file
 void ChainingHashTable::printAll(std::string filename) {
 	for(int i = 0; i < table.size(); i++) {
-		if(table.at(i) != "") {
-			std::cout << i  << ": " << table.at(i) << ": " << count.at(i) << '\n';
+		if(table.at(i).size() != 0) {
+			std::cout << i  << ": " << table.at(i).at(0) << ": " << table.at(i).size() << '\n';
 		}
 	}
 }

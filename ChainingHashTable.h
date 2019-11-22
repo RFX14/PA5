@@ -8,8 +8,7 @@
 class ChainingHashTable: public HashTable {
     private:
     // TODO: insert additional variables needed here
-        std::vector<int> table;
-        std::vector<int> count;
+        std::vector<std::vector<std::string>> table;
     public: 
         ChainingHashTable(std::string str);
         ~ChainingHashTable() = default; 
