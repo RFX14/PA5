@@ -2,16 +2,17 @@
 #define CHAINING_H
 
 #include "HashTable.h"
+#include <string>
 
 // Chaining hash table class
 class ChainingHashTable: public HashTable {
     private:
     // TODO: insert additional variables needed here
     std::vector<std::string> table;
-    std::vector<std::int> count;
+    std::vector<int> count;
     public: 
         ChainingHashTable(std::string str);
-        ~ChainingHashTable(); 
+        ~ChainingHashTable() = default; 
         void insert(std::string key, int val); 
         int remove(std::string key); 
         int get(std::string key);
