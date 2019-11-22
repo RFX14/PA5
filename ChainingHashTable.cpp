@@ -41,6 +41,8 @@ int ChainingHashTable::get(std::string key) {
 // prints number of occurrances for all given strings to a txt file
 void ChainingHashTable::printAll(std::string filename) {
 	for(int i = 0; i < table.size(); i++) {
-		std::cout << table.at(i) << ": " << count.at(i) << '\n';
+		if(table.at(i) != "") {
+			std::cout << table.at(i) << ": " << count.at(i) << '\n';
+		}
 	}
 }

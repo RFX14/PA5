@@ -10,15 +10,15 @@ HashTable::HashTable(std::string str) {
 	}
 }
 
-
 // hash function to determine index where string key goes, as mentioned in the instructions
 int HashTable::hash(std::string s) {
 	int hash = 0;
 	int n = s.size();
 	for(int i = 0; i < n; i++) {
-		hash = 7 * hash + int(s.at(i));
+		//std::cout << hash << '\n';
+		hash = 2 * hash + int(s.at(i));
 	}
-	std::cout << hash % 58000 << '\n';
+	//std::cout << hash % 58000 << '\n';
 	return (hash % 58000);
 }
 
