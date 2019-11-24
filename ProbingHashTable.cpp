@@ -15,8 +15,20 @@ ProbingHashTable::~ProbingHashTable() {
 
 // inserts the given string key
 void ProbingHashTable::insert(std::string key, int val) {
-	table.at(val) = key;
-	count.at(val) += 1;
+	std::cout << key << "\n";
+	bool placed = false;
+	for(int i = 0; i < data.size() - 100; i++) {
+		int newVal = (HashTable::hash(key) + i) % (data.size() - 5);
+		if(table.at(newVal) == "" || table.at(newVal) == key) {
+			table.at(newVal) = key;
+			count.at(newVal) += 1;
+			placed = true;
+			break;
+		} 
+	}
+
+	if(!placed) { std::cout << "ERROR: Table Full!\n"; }
+	
 }
 
 // removes the given key from the hash table - if the key is not in the list, throw an error
@@ -32,7 +44,6 @@ int ProbingHashTable::remove(std::string key) {
 		table.at(val) = "";
 	}
 	return val;
-	return 0;
 }
 
 // getter to obtain the value associated with the given key
