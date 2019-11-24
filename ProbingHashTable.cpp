@@ -17,14 +17,14 @@ ProbingHashTable::~ProbingHashTable() {
 void ProbingHashTable::insert(std::string key, int val) {
 	std::cout << key << "\n";
 	bool placed = false;
-	for(int i = 0; i < data.size() - 100; i++) {
-		int newVal = (HashTable::hash(key) + i) % (data.size() - 5);
-		if(table.at(newVal) == "" || table.at(newVal) == key) {
-			table.at(newVal) = key;
-			count.at(newVal) += 1;
+	for(int i = 0; i < table.size(); i++) {
+		if(table.at(val) == "" || table.at(val) == key) {
+			table.at(val) = key;
+			count.at(val) += 1;
 			placed = true;
 			break;
 		} 
+		val = (val + i) % table.size();
 	}
 
 	if(!placed) { std::cout << "ERROR: Table Full!\n"; }
