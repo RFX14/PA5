@@ -5,9 +5,14 @@
 
 // constructor (NOTE: graders will use a default constructor for testing)
 ChainingHashTable::ChainingHashTable(std::string str) : HashTable(str) {
-	table.resize(58000);
-	for(int i = 0; i < data.size(); i++) {
-		insert(data.at(i), HashTable::hash(data.at(i)));
+	table.resize(58110);
+	try {
+		std::cout << "Inserting...\n";
+		for(int i = 0; i < data.size(); i++) {
+			insert(data.at(i), HashTable::hash(data.at(i)));
+		}
+	} catch(...) {
+		std::cout << "ERROR: Insert Failed!\n";
 	}
 }
 
