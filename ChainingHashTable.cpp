@@ -1,5 +1,6 @@
 #include "ChainingHashTable.h"
 #include "HashTable.h"
+#include <fstream>
 
 ///////////////////// TODO: FILL OUT THE FUNCTIONS /////////////////////
 
@@ -11,6 +12,7 @@ ChainingHashTable::ChainingHashTable(std::string str) : HashTable(str) {
 		for(int i = 0; i < data.size(); i++) {
 			insert(data.at(i), HashTable::hash(data.at(i)));
 		}
+		std::cout << "DONE!\n";
 	} catch(...) {
 		std::cout << "ERROR: Insert Failed!\n";
 	}
@@ -47,9 +49,10 @@ int ChainingHashTable::get(std::string key) {
 
 // prints number of occurrances for all given strings to a txt file
 void ChainingHashTable::printAll(std::string filename) {
+	std::ofstream myFile(filename);
 	for(int i = 0; i < table.size(); i++) {
 		if(table.at(i).size() != 0) {
-			std::cout << i  << ": " << table.at(i).at(0) << ": " << table.at(i).size() << '\n';
+			myFile << table.at(i).at(0) << ": " << table.at(i).size() << '\n';
 		}
 	}
 }
