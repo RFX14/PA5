@@ -19,7 +19,7 @@ int HashTable::hash(std::string s) {
 		hash = 2 * hash + int(s.at(i));
 	}
 	//std::cout << hash % 58000 << '\n';
-	return (hash % 58000);
+	return (hash % 58110);
 }
 
 // returns a boolean of whether the hash table is empty or not
