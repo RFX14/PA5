@@ -8,7 +8,7 @@
 ProbingHashTable::ProbingHashTable(std::string str) : HashTable(str) {
 	table.resize(58110);
 	count.resize(58110);
-	std::vector<std::chrono::nanoseconds> time;
+	std::vector<std::chrono::microseconds> time;
 	try {
 		std::cout << "Inserting...\n";
 		auto start = std::chrono::high_resolution_clock::now();
